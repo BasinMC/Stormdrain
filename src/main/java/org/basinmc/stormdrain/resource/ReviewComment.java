@@ -45,7 +45,7 @@ public class ReviewComment extends Comment {
       @JsonProperty("position") int position,
       @JsonProperty("original_position") int originalPosition,
       @NonNull @JsonProperty(value = "user", required = true) User user,
-      @Nullable @JsonProperty(value = "html_url", required = true) URL browserUrl,
+      @NonNull @JsonProperty(value = "html_url", required = true) URL browserUrl,
       @NonNull @JsonProperty(value = "created_at", required = true) Instant createdAt,
       @NonNull @JsonProperty(value = "updated_at", required = true) Instant updatedAt) {
     super(id, body, user, browserUrl, createdAt, updatedAt);
