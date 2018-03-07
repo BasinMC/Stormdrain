@@ -319,7 +319,7 @@ public class Repository extends AbstractTimestampedBrowserAccessibleResource {
    *
    * @return true if enabled, false otherwise.
    */
-  public boolean isHasIssues() {
+  public boolean hasIssues() {
     return this.hasIssues;
   }
 
@@ -328,7 +328,7 @@ public class Repository extends AbstractTimestampedBrowserAccessibleResource {
    *
    * @return true if downloads exist, false otherwise.
    */
-  public boolean isHasDownloads() {
+  public boolean hasDownloads() {
     return this.hasDownloads;
   }
 
@@ -337,7 +337,7 @@ public class Repository extends AbstractTimestampedBrowserAccessibleResource {
    *
    * @return true if enabled, false otherwise.
    */
-  public boolean isHasWiki() {
+  public boolean hasWiki() {
     return this.hasWiki;
   }
 
@@ -346,7 +346,7 @@ public class Repository extends AbstractTimestampedBrowserAccessibleResource {
    *
    * @return true if enabled, false otherwise.
    */
-  public boolean isHasPages() {
+  public boolean hasPages() {
     return this.hasPages;
   }
 
