@@ -22,6 +22,7 @@ import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 import org.basinmc.stormdrain.resource.Resource.Timestamped;
+import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
  * Provides an abstract timestamped resource implementation.
@@ -40,7 +41,8 @@ public abstract class AbstractTimestampedResource extends AbstractResource imple
       @Nullable Instant modificationTimestamp) {
     super(id);
     this.creationTimestamp = creationTimestamp;
-    this.modificationTimestamp = modificationTimestamp;
+    this.modificationTimestamp = ValueUtility
+        .toOptionalModificationTimestamp(creationTimestamp, modificationTimestamp);
   }
 
   /**

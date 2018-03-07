@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import org.basinmc.stormdrain.resource.Resource.Timestamped;
+import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
  * Represents a page's build state or result.
@@ -49,7 +50,7 @@ public class PageBuild implements Timestamped {
       @NonNull String commitId,
       @NonNull User pusher,
       @NonNull Instant creationTimestamp,
-      @NonNull Instant modificationTimestamp) {
+      @Nullable Instant modificationTimestamp) {
     this.status = status;
     this.errorMessage = errorMessage;
     this.duration = duration;
@@ -74,7 +75,8 @@ public class PageBuild implements Timestamped {
     this.commitId = commitId;
     this.pusher = pusher;
     this.creationTimestamp = creationTimestamp;
-    this.modificationTimestamp = modificationTimestamp;
+    this.modificationTimestamp = ValueUtility
+        .toOptionalModificationTimestamp(creationTimestamp, modificationTimestamp);
   }
 
   /**

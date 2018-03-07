@@ -16,7 +16,9 @@
  */
 package org.basinmc.stormdrain.utility;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import edu.umd.cs.findbugs.annotations.Nullable;
+import java.time.Instant;
 
 /**
  * Provides utility methods which simplify the interaction with various different value types.
@@ -42,5 +44,23 @@ public final class ValueUtility {
     }
 
     return value;
+  }
+
+  /**
+   * Reduces optional modification timestamps to their actual value (e.g. if they match the creation
+   * timestamp the modification timestamp is assumed to be unset).
+   *
+   * @param creationTimestamp a creation timestamp.
+   * @param modificationTimestamp a modification timestamp (or null).
+   * @return a modification timestamp or null if unset.
+   */
+  @Nullable
+  public static Instant toOptionalModificationTimestamp(@NonNull Instant creationTimestamp,
+      @Nullable Instant modificationTimestamp) {
+    if (modificationTimestamp == null || creationTimestamp.equals(modificationTimestamp)) {
+      return null;
+    }
+
+    return modificationTimestamp;
   }
 }
