@@ -25,6 +25,7 @@ import java.time.Instant;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -154,9 +155,9 @@ public class Issue extends AbstractTimestampedBrowserAccessibleResource {
    *
    * @return a user.
    */
-  @Nullable
-  public User getAssignee() {
-    return this.assignee;
+  @NonNull
+  public Optional<User> getAssignee() {
+    return Optional.ofNullable(this.assignee);
   }
 
   /**
@@ -164,9 +165,9 @@ public class Issue extends AbstractTimestampedBrowserAccessibleResource {
    *
    * @return a milestone.
    */
-  @Nullable
-  public Milestone getMilestone() {
-    return this.milestone;
+  @NonNull
+  public Optional<Milestone> getMilestone() {
+    return Optional.ofNullable(this.milestone);
   }
 
   /**
@@ -185,9 +186,9 @@ public class Issue extends AbstractTimestampedBrowserAccessibleResource {
    *
    * @return a date and time.
    */
-  @Nullable
-  public Instant getClosedAt() {
-    return this.closedAt;
+  @NonNull
+  public Optional<Instant> getClosedAt() {
+    return Optional.ofNullable(this.closedAt);
   }
 
   /**
