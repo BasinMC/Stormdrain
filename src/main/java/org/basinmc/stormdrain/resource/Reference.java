@@ -38,7 +38,7 @@ public class Reference {
       @NonNull @JsonProperty(value = "label", required = true) String label,
       @NonNull @JsonProperty(value = "ref", required = true) String reference,
       @NonNull @JsonProperty(value = "user", required = true) User user,
-      @NonNull @JsonProperty(value = "repository", required = true) Repository repository) {
+      @NonNull @JsonProperty(value = "repo", required = true) Repository repository) {
     this.label = label;
     this.reference = reference;
     this.user = user;
