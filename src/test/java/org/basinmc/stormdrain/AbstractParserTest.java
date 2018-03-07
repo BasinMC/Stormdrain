@@ -62,7 +62,7 @@ public abstract class AbstractParserTest<T> {
   /**
    * Evaluates whether the specified event has been parsed correctly.
    *
-   * @param event a parsed event.
+   * @param model a parsed model.
    */
-  protected abstract void doTest(@NonNull T event);
+  protected abstract void doTest(@NonNull T model);
 }
