@@ -45,7 +45,7 @@ public class GollumPage implements BrowserAccessible {
       @NonNull @JsonProperty(value = "title", required = true) String title,
       @Nullable @JsonProperty("summary") String summary,
       @NonNull @JsonProperty(value = "action", required = true) Action action,
-      @NonNull @JsonProperty(value = "commitId", required = true) String commitId,
+      @NonNull @JsonProperty(value = "sha", required = true) String commitId,
       @NonNull @JsonProperty(value = "html_url", required = true) URL browserUrl) {
     this.pageName = pageName;
     this.title = title;
