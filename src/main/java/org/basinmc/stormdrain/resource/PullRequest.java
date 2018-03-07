@@ -33,10 +33,12 @@ import java.util.Set;
  */
 public class PullRequest extends Issue {
 
-  private final Instant mergedAt;
   private final String mergeCommitId;
   private final Reference head;
   private final Reference base;
+  private final URL diffUrl;
+  private final URL patchUrl;
+  private final Instant mergedAt;
 
   @JsonCreator
   public PullRequest(
@@ -54,27 +56,21 @@ public class PullRequest extends Issue {
       @Nullable @JsonProperty("assignee") User assignee,
       @Nullable @JsonProperty("milestone") Milestone milestone,
       @Nullable @JsonProperty("labels") Set<Label> labels,
-      @Nullable @JsonProperty(value = "html_url", required = true) URL htmlUrl,
+      @NonNull @JsonProperty(value = "html_url", required = true) URL htmlUrl,
+      @NonNull @JsonProperty(value = "diff_url", required = true) URL diffUrl,
+      @NonNull @JsonProperty(value = "patch_url", required = true) URL patchUrl,
       @NonNull @JsonProperty(value = "created_at", required = true) Instant createdAt,
       @NonNull @JsonProperty(value = "updated_at", required = true) Instant updatedAt,
       @Nullable @JsonProperty("closed_at") Instant closedAt,
       @Nullable @JsonProperty("merged_at") Instant mergedAt) {
     super(id, number, title, body, user, state, locked, comments, assignee, milestone, labels,
         htmlUrl, createdAt, updatedAt, closedAt);
-    this.mergedAt = mergedAt;
     this.mergeCommitId = mergeCommitId;
     this.head = head;
     this.base = base;
-  }
-
-  /**
-   * Retrieves the date and time (in UTC) at which this request was merged (if any).
-   *
-   * @return a date and time or, if the pull request has not been merged yet, an empty optional.
-   */
-  @NonNull
-  public Optional<Instant> getMergedAt() {
-    return Optional.ofNullable(this.mergedAt);
+    this.diffUrl = diffUrl;
+    this.patchUrl = patchUrl;
+    this.mergedAt = mergedAt;
   }
 
   /**
@@ -105,6 +101,36 @@ public class PullRequest extends Issue {
   @NonNull
   public Reference getBase() {
     return this.base;
+  }
+
+  /**
+   * Retrieves the date and time (in UTC) at which this request was merged (if any).
+   *
+   * @return a date and time or, if the pull request has not been merged yet, an empty optional.
+   */
+  @NonNull
+  public Optional<Instant> getMergedAt() {
+    return Optional.ofNullable(this.mergedAt);
+  }
+
+  /**
+   * Retrieves the URL from which a unified diff of this pull request can be retrieved.
+   *
+   * @return a url.
+   */
+  @NonNull
+  public URL getDiffUrl() {
+    return this.diffUrl;
+  }
+
+  /**
+   * Retrieves the URL from which a git patch of this pull request can be retrieved.
+   *
+   * @return a url.
+   */
+  @NonNull
+  public URL getPatchUrl() {
+    return this.patchUrl;
   }
 
   /**
