@@ -25,6 +25,7 @@ import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 import org.basinmc.stormdrain.resource.Issue.State;
+import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
  * Represents a milestone which contains one or more issues.
@@ -63,7 +64,7 @@ public class Milestone extends AbstractTimestampedBrowserAccessibleResource {
     this.number = number;
     this.state = state;
     this.title = title;
-    this.description = description;
+    this.description = ValueUtility.toOptionalString(description);
     this.creator = creator;
     this.openIssues = openIssues;
     this.closedIssues = closedIssues;
@@ -105,9 +106,9 @@ public class Milestone extends AbstractTimestampedBrowserAccessibleResource {
    *
    * @return a description.
    */
-  @Nullable
-  public String getDescription() {
-    return this.description;
+  @NonNull
+  public Optional<String> getDescription() {
+    return Optional.ofNullable(this.description);
   }
 
   /**
