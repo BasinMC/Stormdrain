@@ -23,6 +23,7 @@ import edu.umd.cs.findbugs.annotations.Nullable;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
+import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
  * Represents a deployment using an arbitrary tool in an arbitrary deployment environment.
@@ -45,7 +46,7 @@ public class Deployment extends AbstractTimestampedResource {
       @NonNull @JsonProperty(value = "updated_at", required = true) Instant updatedAt) {
     super(id, createdAt, updatedAt);
     this.environment = environment;
-    this.description = description;
+    this.description = ValueUtility.toOptionalString(description);
     this.creator = creator;
   }
 
