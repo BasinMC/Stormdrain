@@ -47,7 +47,7 @@ public class ResourceOwner extends AbstractBrowserAccessibleResource {
       @NonNull @JsonProperty(value = "avatar_url", required = true) URL avatarUrl)
       throws MalformedURLException {
     // This sucks a bit but resource owners don't come with an HTML url by default
-    this(id, login, type, siteAdmin, new URL("https://github.com" + login),
+    this(id, login, type, siteAdmin, new URL("https://github.com/" + login),
         ValueUtility.toOptionalString(gravatarId), avatarUrl);
   }
 
