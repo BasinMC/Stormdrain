@@ -27,6 +27,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
  * Represents an issue or pull request which has been created by a user on the repository (typically
@@ -55,7 +56,7 @@ public class Issue extends AbstractTimestampedBrowserAccessibleResource {
       @NonNull @JsonProperty(value = "id", required = true) String id,
       @JsonProperty("number") long number,
       @NonNull @JsonProperty(value = "title", required = true) String title,
-      @NonNull @JsonProperty(value = "body", required = true) String body,
+      @Nullable @JsonProperty("body") String body,
       @NonNull @JsonProperty(value = "user", required = true) User user,
       @NonNull @JsonProperty(value = "state", required = true) State state,
       @JsonProperty("locked") boolean locked,
@@ -70,7 +71,7 @@ public class Issue extends AbstractTimestampedBrowserAccessibleResource {
     super(id, browserUrl, createdAt, updatedAt);
     this.number = number;
     this.title = title;
-    this.body = body;
+    this.body = ValueUtility.toOptionalString(body);
     this.user = user;
     this.state = state;
     this.locked = locked;
@@ -107,8 +108,8 @@ public class Issue extends AbstractTimestampedBrowserAccessibleResource {
    * @return a body.
    */
   @NonNull
-  public String getBody() {
-    return this.body;
+  public Optional<String> getBody() {
+    return Optional.ofNullable(this.body);
   }
 
   /**
