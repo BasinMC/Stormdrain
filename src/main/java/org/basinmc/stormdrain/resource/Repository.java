@@ -23,6 +23,7 @@ import java.net.URL;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
+import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
  * Represents a repository which is owned by a user or organization.
@@ -94,7 +95,7 @@ public class Repository extends AbstractTimestampedBrowserAccessibleResource {
     this.fullName = fullName;
     this.owner = owner;
     this.privateAccess = privateAccess;
-    this.description = description;
+    this.description = ValueUtility.toOptionalString(description);
     this.fork = fork;
     this.gitUrl = gitUrl;
     this.sshUrl = sshUrl;
