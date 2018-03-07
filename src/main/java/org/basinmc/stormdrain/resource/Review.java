@@ -30,21 +30,24 @@ import java.util.Objects;
  */
 public class Review extends AbstractBrowserAccessibleResource {
 
-  private final String body;
-  private final Instant submissionTimestamp;
   private final State state;
+  private final String body;
+  private final User user;
+  private final Instant submissionTimestamp;
 
   @JsonCreator
   public Review(
       @NonNull @JsonProperty(value = "id", required = true) String id,
       @NonNull @JsonProperty(value = "state", required = true) State state,
       @NonNull @JsonProperty(value = "body", required = true) String body,
+      @NonNull @JsonProperty(value = "user", required = true) User user,
       @NonNull @JsonProperty(value = "submitted_at", required = true) Instant submissionTimestamp,
       @NonNull @JsonProperty(value = "html_url", required = true) URL browserUrl) {
     super(id, browserUrl);
-    this.body = body;
-    this.submissionTimestamp = submissionTimestamp;
     this.state = state;
+    this.body = body;
+    this.user = user;
+    this.submissionTimestamp = submissionTimestamp;
   }
 
   /**
@@ -75,6 +78,16 @@ public class Review extends AbstractBrowserAccessibleResource {
   @NonNull
   public State getState() {
     return this.state;
+  }
+
+  /**
+   * Retrieves the user who created this review.
+   *
+   * @return a user.
+   */
+  @NonNull
+  public User getUser() {
+    return this.user;
   }
 
   /**
