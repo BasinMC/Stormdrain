@@ -35,6 +35,8 @@ public class ReviewComment extends Comment {
   private final String diffHunk;
   private final int position;
   private final int originalPosition;
+  private final String commitId;
+  private final String originalCommitId;
 
   @JsonCreator
   public ReviewComment(
@@ -44,6 +46,8 @@ public class ReviewComment extends Comment {
       @NonNull @JsonProperty(value = "diff_hunk", required = true) String diffHunk,
       @JsonProperty("position") int position,
       @JsonProperty("original_position") int originalPosition,
+      @NonNull @JsonProperty(value = "commit_id", required = true) String commitId,
+      @NonNull @JsonProperty(value = "original_commit_id", required = true) String originalCommitId,
       @NonNull @JsonProperty(value = "user", required = true) User user,
       @NonNull @JsonProperty(value = "html_url", required = true) URL browserUrl,
       @NonNull @JsonProperty(value = "created_at", required = true) Instant createdAt,
@@ -53,6 +57,8 @@ public class ReviewComment extends Comment {
     this.diffHunk = diffHunk;
     this.position = position;
     this.originalPosition = originalPosition;
+    this.commitId = commitId;
+    this.originalCommitId = originalCommitId;
   }
 
   /**
@@ -91,6 +97,21 @@ public class ReviewComment extends Comment {
    */
   public int getOriginalPosition() {
     return this.originalPosition;
+  }
+
+  /**
+   * Retrieves the commit identifier on which this review was placed.
+   * @return a commit hash.
+   */
+  @NonNull
+  public String getCommitId() {
+    return this.commitId;
+  }
+
+  // TODO: Document
+  @NonNull
+  public String getOriginalCommitId() {
+    return this.originalCommitId;
   }
 
   /**
