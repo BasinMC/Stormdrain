@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.basinmc.stormdrain.event;
+package org.basinmc.stormdrain;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -25,19 +25,19 @@ import java.io.InputStream;
 import org.junit.Test;
 
 /**
- * Provides a base to tests which evaluate whether the event implementations correctly mirror the
- * structure of the documented event hooks.
+ * Provides a base to tests which evaluate whether model implementations correctly mirror the
+ * structure of the documented messages.
  *
  * @author <a href="mailto:johannesd@torchmind.com">Johannes Donath</a>
  */
-public abstract class AbstractEventTest<E extends Event> {
+public abstract class AbstractParserTest<T> {
 
-  private final Class<E> type;
-  private final String eventName;
+  private final Class<T> type;
+  private final String fileName;
 
-  public AbstractEventTest(@NonNull Class<E> type, @NonNull String eventName) {
+  public AbstractParserTest(@NonNull Class<T> type, @NonNull String fileName) {
     this.type = type;
-    this.eventName = eventName;
+    this.fileName = fileName;
   }
 
   /**
@@ -48,8 +48,7 @@ public abstract class AbstractEventTest<E extends Event> {
    */
   @Test
   public void testParse() throws IOException {
-    try (InputStream inputStream = this.getClass()
-        .getResourceAsStream("/" + this.eventName + ".json")) {
+    try (InputStream inputStream = this.getClass().getResourceAsStream(this.fileName)) {
       ObjectMapper mapper = new ObjectMapper();
 
       mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS);
@@ -65,5 +64,5 @@ public abstract class AbstractEventTest<E extends Event> {
    *
    * @param event a parsed event.
    */
-  protected abstract void doTest(@NonNull E event);
+  protected abstract void doTest(@NonNull T event);
 }
