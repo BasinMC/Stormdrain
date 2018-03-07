@@ -19,9 +19,12 @@ package org.basinmc.stormdrain.resource;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import edu.umd.cs.findbugs.annotations.NonNull;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import java.net.URL;
 import java.time.Instant;
 import java.util.Objects;
+import java.util.Optional;
+import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
  * Represents a comment which has been made on source code, an issue or a pull request.
@@ -36,24 +39,24 @@ public class Comment extends AbstractTimestampedBrowserAccessibleResource {
   @JsonCreator
   public Comment(
       @NonNull @JsonProperty(value = "id", required = true) String id,
-      @NonNull @JsonProperty(value = "body", required = true) String body,
+      @Nullable @JsonProperty("body") String body,
       @NonNull @JsonProperty(value = "user", required = true) User user,
       @NonNull @JsonProperty(value = "html_url", required = true) URL browserUrl,
       @NonNull @JsonProperty(value = "created_at", required = true) Instant createdAt,
       @NonNull @JsonProperty(value = "updated_at", required = true) Instant updatedAt) {
     super(id, browserUrl, createdAt, updatedAt);
-    this.body = body;
+    this.body = ValueUtility.toOptionalString(body);
     this.user = user;
   }
 
   /**
    * Retrieves the actual text within this comment.
    *
-   * @return a comment body.
+   * @return a comment body or, if the body is empty, an empty optional.
    */
   @NonNull
-  public String getBody() {
-    return this.body;
+  public Optional<String> getBody() {
+    return Optional.ofNullable(this.body);
   }
 
   /**

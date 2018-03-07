@@ -39,7 +39,7 @@ public class ReviewComment extends Comment {
   @JsonCreator
   public ReviewComment(
       @NonNull @JsonProperty(value = "id", required = true) String id,
-      @NonNull @JsonProperty(value = "body", required = true) String body,
+      @Nullable @JsonProperty("body") String body,
       @NonNull @JsonProperty(value = "path", required = true) String path,
       @NonNull @JsonProperty(value = "diff_hunk", required = true) String diffHunk,
       @JsonProperty("position") int position,

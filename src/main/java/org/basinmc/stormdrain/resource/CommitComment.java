@@ -40,7 +40,7 @@ public class CommitComment extends Comment {
       @Nullable @JsonProperty(value = "line", required = true) Integer line,
       @Nullable @JsonProperty("path") String path,
       @NonNull @JsonProperty(value = "user", required = true) User user,
-      @NonNull @JsonProperty(value = "body", required = true) String body,
+      @Nullable @JsonProperty("body") String body,
       @NonNull @JsonProperty(value = "html_url", required = true) URL browserUrl,
       @NonNull @JsonProperty(value = "created_at", required = true) Instant createdAt,
       @NonNull @JsonProperty(value = "updated_at", required = true) Instant updatedAt) {

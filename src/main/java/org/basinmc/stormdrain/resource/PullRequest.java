@@ -43,7 +43,7 @@ public class PullRequest extends Issue {
       @NonNull @JsonProperty(value = "id", required = true) String id,
       @JsonProperty("number") long number,
       @NonNull @JsonProperty(value = "title", required = true) String title,
-      @NonNull @JsonProperty(value = "body", required = true) String body,
+      @Nullable @JsonProperty("body") String body,
       @NonNull @JsonProperty(value = "user", required = true) User user,
       @NonNull @JsonProperty(value = "state", required = true) State state,
       @Nullable @JsonProperty("merge_commit_sha") String mergeCommitId,
