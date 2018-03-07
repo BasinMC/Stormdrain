@@ -63,7 +63,7 @@ public class Issue extends AbstractTimestampedBrowserAccessibleResource {
       @Nullable @JsonProperty("assignee") User assignee,
       @Nullable @JsonProperty("milestone") Milestone milestone,
       @Nullable @JsonProperty("labels") Set<Label> labels,
-      @Nullable @JsonProperty(value = "html_url", required = true) URL browserUrl,
+      @NonNull @JsonProperty(value = "html_url", required = true) URL browserUrl,
       @NonNull @JsonProperty(value = "created_at", required = true) Instant createdAt,
       @NonNull @JsonProperty(value = "updated_at", required = true) Instant updatedAt,
       @Nullable @JsonProperty("closed_at") Instant closedAt) {
