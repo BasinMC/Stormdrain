@@ -2,6 +2,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/org.basinmc/stormdrain.svg?style=flat-square)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%20org.basinmc%20a%3A%20stormdrain)
 [![GitHub Release](https://img.shields.io/github/release/BasinMC/Stormdrain.svg?style=flat-square)](https://github.com/BasinMC/Stormdrain/releases)
 [![CircleCI](https://img.shields.io/circleci/project/github/BasinMC/Stormdrain.svg?style=flat-square)](https://circleci.com/gh/BasinMC/Stormdrain)
+[![Codacy grade](https://img.shields.io/codacy/grade/1705aebdf08541e5bd32e295c7665f77.svg?style=flat-square)](https://app.codacy.com/app/Basin/Stormdrain/)
 
 Stormdrain
 ==========
