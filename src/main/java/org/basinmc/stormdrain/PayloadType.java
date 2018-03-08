@@ -235,10 +235,10 @@ public enum PayloadType {
    */
   WATCH(WatchEvent.class);
 
-  private final Class<?> type;
+  private final Class<? extends Event> type;
   private final ObjectReader reader;
 
-  PayloadType(@NonNull Class<?> type) {
+  PayloadType(@NonNull Class<? extends Event> type) {
     this.type = type;
 
     ObjectMapper mapper = new ObjectMapper();
@@ -254,7 +254,7 @@ public enum PayloadType {
    * @return an event type.
    */
   @NonNull
-  public Class<?> getType() {
+  public Class<? extends Event> getType() {
     return this.type;
   }
 
