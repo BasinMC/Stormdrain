@@ -48,6 +48,7 @@ import org.basinmc.stormdrain.event.PullRequestReviewEvent;
 import org.basinmc.stormdrain.event.PushEvent;
 import org.basinmc.stormdrain.event.ReleaseEvent;
 import org.basinmc.stormdrain.event.RepositoryEvent;
+import org.basinmc.stormdrain.event.TeamAddEvent;
 import org.basinmc.stormdrain.event.TeamEvent;
 
 /**
@@ -221,13 +222,12 @@ public enum PayloadType {
   /**
    * Any time a team is created, deleted, modified, or added to or removed from a repository.
    */
-  TEAM(TeamEvent.class);
+  TEAM(TeamEvent.class),
 
   /**
    * Any time a team is added or modified on a repository.
    */
-  // TODO
-  // TEAM_ADD,
+  TEAM_ADD(TeamAddEvent.class);
 
   /**
    * Any time a user stars a repository.
