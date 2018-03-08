@@ -1,0 +1,13 @@
+{
+  "login": "baxterandthehackers",
+  "id": 4312013,
+  "url": "https://api.github.com/orgs/baxterandthehackers",
+  "repos_url": "https://api.github.com/orgs/baxterandthehackers/repos",
+  "events_url": "https://api.github.com/orgs/baxterandthehackers/events",
+  "hooks_url": "https://api.github.com/orgs/baxterandthehackers/hooks",
+  "issues_url": "https://api.github.com/orgs/baxterandthehackers/issues",
+  "members_url": "https://api.github.com/orgs/baxterandthehackers/members{/member}",
+  "public_members_url": "https://api.github.com/orgs/baxterandthehackers/public_members{/member}",
+  "avatar_url": "https://avatars.githubusercontent.com/u/4312013?v=3",
+  "description": ""
+}

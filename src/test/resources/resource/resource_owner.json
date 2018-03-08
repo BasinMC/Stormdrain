@@ -1,0 +1,19 @@
+{
+  "login": "baxterandthehackers",
+  "id": 7649605,
+  "avatar_url": "https://avatars.githubusercontent.com/u/7649605?v=3",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/baxterandthehackers",
+  "html_url": "https://github.com/baxterandthehackers",
+  "followers_url": "https://api.github.com/users/baxterandthehackers/followers",
+  "following_url": "https://api.github.com/users/baxterandthehackers/following{/other_user}",
+  "gists_url": "https://api.github.com/users/baxterandthehackers/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/baxterandthehackers/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/baxterandthehackers/subscriptions",
+  "organizations_url": "https://api.github.com/users/baxterandthehackers/orgs",
+  "repos_url": "https://api.github.com/users/baxterandthehackers/repos",
+  "events_url": "https://api.github.com/users/baxterandthehackers/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/baxterandthehackers/received_events",
+  "type": "Organization",
+  "site_admin": false
+}
