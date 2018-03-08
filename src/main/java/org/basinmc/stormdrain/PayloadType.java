@@ -45,6 +45,7 @@ import org.basinmc.stormdrain.event.PublicEvent;
 import org.basinmc.stormdrain.event.PullRequestEvent;
 import org.basinmc.stormdrain.event.PullRequestReviewCommentEvent;
 import org.basinmc.stormdrain.event.PullRequestReviewEvent;
+import org.basinmc.stormdrain.event.PushEvent;
 import org.basinmc.stormdrain.event.ReleaseEvent;
 import org.basinmc.stormdrain.event.RepositoryEvent;
 
@@ -198,8 +199,7 @@ public enum PayloadType {
   /**
    * Any git push, including editing tags or branches.
    */
-  // TODO
-  // PUSH(PushEvent.class),
+  PUSH(PushEvent.class),
 
   /**
    * Any time a repository is created, deleted, archived, unarchived, made public, or made private.
