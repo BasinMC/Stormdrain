@@ -48,6 +48,7 @@ import org.basinmc.stormdrain.event.PullRequestReviewEvent;
 import org.basinmc.stormdrain.event.PushEvent;
 import org.basinmc.stormdrain.event.ReleaseEvent;
 import org.basinmc.stormdrain.event.RepositoryEvent;
+import org.basinmc.stormdrain.event.TeamEvent;
 
 /**
  * Provides a list of recognized event types which notify the receiver of certain changes to a
@@ -209,7 +210,7 @@ public enum PayloadType {
   /**
    * Any time a release is published.
    */
-  RELEASE(ReleaseEvent.class);
+  RELEASE(ReleaseEvent.class),
 
   /**
    * Any time a repository receives a status update via the API.
@@ -220,8 +221,7 @@ public enum PayloadType {
   /**
    * Any time a team is created, deleted, modified, or added to or removed from a repository.
    */
-  // TODO
-  // TEAM,
+  TEAM(TeamEvent.class);
 
   /**
    * Any time a team is added or modified on a repository.
