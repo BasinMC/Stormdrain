@@ -22,8 +22,11 @@ import edu.umd.cs.findbugs.annotations.NonNull;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import java.net.URL;
 import java.time.Instant;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Represents a released version.
@@ -37,6 +40,7 @@ public class Release extends AbstractBrowserAccessibleResource {
   private final String body;
   private final boolean draft;
   private final boolean prerelease;
+  private final Set<Asset> assets;
   private final User author;
   private final URL tarballUrl;
   private final URL zipballUrl;
@@ -51,6 +55,7 @@ public class Release extends AbstractBrowserAccessibleResource {
       @Nullable @JsonProperty("body") String body,
       @JsonProperty("draft") boolean draft,
       @JsonProperty("prerelease") boolean prerelease,
+      @NonNull @JsonProperty(value = "assets", required = true) Set<Asset> assets,
       @NonNull @JsonProperty(value = "author", required = true) User author,
       @NonNull @JsonProperty(value = "tarball_url", required = true) URL tarballUrl,
       @NonNull @JsonProperty(value = "zipball_url", required = true) URL zipballUrl,
@@ -63,6 +68,7 @@ public class Release extends AbstractBrowserAccessibleResource {
     this.body = body;
     this.draft = draft;
     this.prerelease = prerelease;
+    this.assets = new HashSet<>(assets);
     this.author = author;
     this.tarballUrl = tarballUrl;
     this.zipballUrl = zipballUrl;
@@ -116,6 +122,16 @@ public class Release extends AbstractBrowserAccessibleResource {
    */
   public boolean isPrerelease() {
     return this.prerelease;
+  }
+
+  /**
+   * Retrieves a set of downloadable assets for this release.
+   *
+   * @return a set of assets.
+   */
+  @NonNull
+  public Set<Asset> getAssets() {
+    return Collections.unmodifiableSet(this.assets);
   }
 
   /**
