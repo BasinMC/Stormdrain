@@ -30,6 +30,8 @@ import java.util.Set;
 import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
+ * Represents a single commit within a repository.
+ *
  * @author <a href="mailto:johannesd@torchmind.com">Johannes Donath</a>
  */
 public class Commit extends AbstractBrowserAccessibleResource {
