@@ -21,14 +21,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import edu.umd.cs.findbugs.annotations.NonNull;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import java.net.URL;
-import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import org.basinmc.stormdrain.resource.Resource.Timestamped;
 import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
@@ -120,6 +118,7 @@ public class Commit extends AbstractBrowserAccessibleResource {
 
   /**
    * Retrieves the date and time at which this commit has been created.
+   *
    * @return a date and time.
    */
   @NonNull
@@ -189,7 +188,8 @@ public class Commit extends AbstractBrowserAccessibleResource {
   @Override
   public int hashCode() {
     return Objects
-        .hash(super.hashCode(), this.treeId, this.distinct, this.message, this.author, this.committer, this.timestamp,
+        .hash(super.hashCode(), this.treeId, this.distinct, this.message, this.author,
+            this.committer, this.timestamp,
             this.addedFiles,
             this.removedFiles, this.modifiedFiles);
   }
