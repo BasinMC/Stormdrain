@@ -39,7 +39,7 @@ public class PageBuildResourceTest extends AbstractResourceParserTest<PageBuild>
     Assert.assertNotNull(model.getPusher());
     Assert.assertEquals("053b99542c83021d6b202d1a1f5ecd5ef7084e55", model.getCommitId());
     Assert.assertTrue(model.getDuration().isPresent());
-    Assert.assertEquals(3790, model.getDuration().get().toSeconds()); // TODO: This might be in ms
+    Assert.assertEquals(3790, model.getDuration().get().getSeconds()); // TODO: This might be in ms
     Assert.assertEquals(1430869213L, model.getCreationTimestamp().getEpochSecond());
     Assert.assertTrue(model.getModificationTimestamp().isPresent());
     Assert.assertEquals(1430869217L, model.getModificationTimestamp().get().getEpochSecond());
