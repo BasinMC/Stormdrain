@@ -50,6 +50,7 @@ import org.basinmc.stormdrain.event.ReleaseEvent;
 import org.basinmc.stormdrain.event.RepositoryEvent;
 import org.basinmc.stormdrain.event.TeamAddEvent;
 import org.basinmc.stormdrain.event.TeamEvent;
+import org.basinmc.stormdrain.event.WatchEvent;
 
 /**
  * Provides a list of recognized event types which notify the receiver of certain changes to a
@@ -227,13 +228,12 @@ public enum PayloadType {
   /**
    * Any time a team is added or modified on a repository.
    */
-  TEAM_ADD(TeamAddEvent.class);
+  TEAM_ADD(TeamAddEvent.class),
 
   /**
    * Any time a user stars a repository.
    */
-  // TODO
-  // WATCH
+  WATCH(WatchEvent.class);
 
   private final Class<?> type;
   private final ObjectReader reader;
