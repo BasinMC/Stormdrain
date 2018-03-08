@@ -26,7 +26,7 @@ import java.util.Objects;
  *
  * @author <a href="mailto:johannesd@torchmind.com">Johannes Donath</a>
  */
-public class Team {
+public class Team extends AbstractResource {
 
   private final String name;
   private final String slug;
@@ -34,9 +34,11 @@ public class Team {
 
   @JsonCreator
   public Team(
+      @NonNull @JsonProperty(value = "id", required = true) String id,
       @NonNull @JsonProperty(value = "name", required = true) String name,
       @NonNull @JsonProperty(value = "slug", required = true) String slug,
       @NonNull @JsonProperty(value = "permission", required = true) Permission permission) {
+    super(id);
     this.name = name;
     this.slug = slug;
     this.permission = permission;
