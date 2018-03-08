@@ -30,6 +30,7 @@ public class Reference {
 
   private final String label;
   private final String reference;
+  private final String commitId;
   private final User user;
   private final Repository repository;
 
@@ -37,10 +38,12 @@ public class Reference {
   public Reference(
       @NonNull @JsonProperty(value = "label", required = true) String label,
       @NonNull @JsonProperty(value = "ref", required = true) String reference,
+      @NonNull @JsonProperty(value = "sha", required = true) String commitId,
       @NonNull @JsonProperty(value = "user", required = true) User user,
       @NonNull @JsonProperty(value = "repo", required = true) Repository repository) {
     this.label = label;
     this.reference = reference;
+    this.commitId = commitId;
     this.user = user;
     this.repository = repository;
   }
@@ -63,6 +66,16 @@ public class Reference {
   @NonNull
   public String getReference() {
     return this.reference;
+  }
+
+  /**
+   * Retrieves the commit identifier.
+   *
+   * @return a commit hash.
+   */
+  @NonNull
+  public String getCommitId() {
+    return this.commitId;
   }
 
   /**
