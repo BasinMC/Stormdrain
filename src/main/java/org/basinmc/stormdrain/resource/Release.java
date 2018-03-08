@@ -27,6 +27,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import org.basinmc.stormdrain.utility.ValueUtility;
 
 /**
  * Represents a released version.
@@ -262,7 +263,7 @@ public class Release extends AbstractBrowserAccessibleResource {
       this.state = state;
       this.contentType = contentType;
       this.name = name;
-      this.label = label;
+      this.label = ValueUtility.toOptionalString(label);
       this.uploader = uploader;
       this.size = size;
       this.downloadCount = downloadCount;
@@ -304,9 +305,9 @@ public class Release extends AbstractBrowserAccessibleResource {
      *
      * @return a label.
      */
-    @Nullable
-    public String getLabel() {
-      return this.label;
+    @NonNull
+    public Optional<String> getLabel() {
+      return Optional.ofNullable(this.label);
     }
 
     /**
